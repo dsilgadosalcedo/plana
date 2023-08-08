@@ -1,6 +1,6 @@
 ---
-const {h = "h-44", w = "w-96", classes} = Astro.props
+const {h, w, classes} = Astro.props
 ---
 <div class=`bg-white shadow-md ${h} ${w} rounded-xl p-6 flex gap-6 ${classes}`>
-  <slot />
+  <slot/>
 </div>

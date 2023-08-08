@@ -3,12 +3,12 @@ import NavLink from "./NavLink.astro"
 import Link from "./Link.astro";
 const {pageTitle} = Astro.props
 ---
-<header class="fixed flex justify-between w-full h-16 bg-indigo-500 items-center p-8 z-50">
-  <nav class="flex gap-4">
+<header class="fixed flex justify-between w-full h-16 bg-indigo-500 items-center p-8 z-50 text-sm sm:text-md">
+  <nav class="flex gap-4 flex-grow">
     <div class="flex items-center">
       <img src="https://plana.antoniolenis.edu.co/storage/appimage/escudo_fondo.png" alt="" class="w-7">
     </div>
-    <ul id="landing-nav" class="text-sm flex items-center [&>li>a]:text-white [&>li>a]:font-normal [&>li>a]:font-figtree-normal [&>li>a]:inline-block [&>li>a]:px-3 [&>li>a]:py-2 z-20">
+    <ul id="landing-nav" class="flex w-full items-center [&>li>a]:text-white [&>li>a]:font-normal [&>li>a]:font-figtree-normal [&>li>a]:inline-block [&>li>a]:px-3 [&>li>a]:py-2 z-20">
       <NavLink pageTitle={pageTitle} href="/" text="Inicio" />
       <NavLink pageTitle={pageTitle} href="/my-code" text="Mi código" />
       <NavLink pageTitle={pageTitle} href="/upload-documents" text="Subir documentos" />
@@ -29,18 +29,18 @@ const {pageTitle} = Astro.props
     </div>
   </nav>
   <div>
-    <ul id="menu-drop" class="text-sm items-center text-[#f3f4f6] font-normal font-figtree-normal z-20 [&>li]:rounded-md">
-      <li class="transition-all duration-300 ease-out hover:bg-[#f3f4f6] hover:text-indigo-500 hidden sm:flex">
+    <ul id="menu-drop" class="items-center text-[#f3f4f6] font-normal font-figtree-normal z-20 [&>li]:rounded-md">
+      <li class="transition-all duration-300 ease-out hover:bg-[#f3f4f6] hover:text-indigo-500 hidden md:flex">
         <button type="button" class="px-3 py-2">Iniciar Sesión</button>
       </li>
-      <li class="sm:hidden border-2 flex items-center">
+      <li class="md:hidden border-2 flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="M145.478-219.086q-16.707 0-28.158-11.502-11.451-11.501-11.451-28.848 0-16.781 11.451-28.107 11.451-11.327 28.158-11.327h669.044q16.707 0 28.441 11.502 11.733 11.502 11.733 28.283 0 17.347-11.733 28.673-11.734 11.326-28.441 11.326H145.478Zm0-221.305q-16.707 0-28.158-11.501-11.451-11.502-11.451-28.283 0-16.782 11.451-28.108t28.158-11.326h669.044q16.707 0 28.441 11.501 11.733 11.502 11.733 28.283 0 16.782-11.733 28.108-11.734 11.326-28.441 11.326H145.478Zm0-220.739q-16.707 0-28.158-11.502t-11.451-28.848q0-16.782 11.451-28.108t28.158-11.326h669.044q16.707 0 28.441 11.502 11.733 11.501 11.733 28.282 0 17.347-11.733 28.673-11.734 11.327-28.441 11.327H145.478Z" fill="currentColor"/></svg>
       </li>
     </ul>
   </div>
-  <div id="login-menu" class="hidden absolute w-48 rounded-xl border-2 p-4 pb-6 top-[4.2rem] right-0 bg-white shadow-sm font-figtree-normal text-sm text-end transition-all duration-200 ease-in opacity-0">
+  <div id="login-menu" class="hidden absolute rounded-xl border-2 p-4 pb-6 top-[4.2rem] right-0 bg-white shadow-sm font-figtree-normal text-end transition-all duration-200 ease-in opacity-0">
     <ul class="flex flex-col gap-2">
-      <div class="flex flex-col gap-2 sm:hidden">
+      <div class="flex flex-col gap-2 md:hidden">
         <li><a href="/" class="hover:underline hover:text-indigo-500">Inicio</a></li>
         <li><a href="/my-code" class="hover:underline hover:text-indigo-500">Mi código</a></li>
         <li><a href="/upload-documents" class="hover:underline hover:text-indigo-500">Subir documentos</a></li>
