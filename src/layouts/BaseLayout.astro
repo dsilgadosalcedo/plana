@@ -1,0 +1,39 @@
+---
+import Header from "../components/Header.astro"
+
+const {pageTitle} = Astro.props
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{`${pageTitle} - Plana`}</title>
+	</head>
+	<body class="bg-[#f3f4f6]">
+    <div class="flex flex-col min-h-screen">
+			<Header pageTitle={pageTitle}/>
+		<main class="flex flex-col flex-grow justify-center items-center">
+			<slot />
+		</main>
+		<footer class="flex justify-end items-center h-16 px-8">
+			<a href="https://github.com/deibissilgado/" target="_blank" class=" text-sm text-gray-600 text-end hover:text-indigo-500">Copyright © 2023 Plana Developer Group</a>
+		</footer>
+		</div>
+	</body>
+</html>
+
+<style>
+	@font-face {
+    font-family: 'Figtree-normal';
+    src: url('/fonts/Figtree-Regular.ttf');
+    font-weight: 400;
+  }
+	@font-face {
+    font-family: 'Figtree-semibold';
+    src: url('/fonts/Figtree-SemiBold.ttf');
+    font-weight: 600;
+  }
+</style>

@@ -1,0 +1,11 @@
+---
+const {text, href} = Astro.props
+const {pageTitle} = Astro.props
+---
+<li class=`${(pageTitle !== text) && "hidden md:flex"}`>
+  <a 
+    href={href} 
+    class=`hover:text-[#3730a3] transition-colors duration-100 delay-100 ease-out rounded-md ${(pageTitle === text) && "border-2"}`>
+      {text}
+  </a>
+</li>

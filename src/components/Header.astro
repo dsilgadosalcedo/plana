@@ -1,0 +1,125 @@
+---
+import NavLink from "./NavLink.astro"
+import Link from "./Link.astro";
+const {pageTitle} = Astro.props
+---
+<header class="fixed flex justify-between w-full h-16 bg-indigo-500 items-center p-8 z-50">
+  <nav class="flex gap-4">
+    <div class="flex items-center">
+      <img src="https://plana.antoniolenis.edu.co/storage/appimage/escudo_fondo.png" alt="" class="w-7">
+    </div>
+    <ul id="landing-nav" class="text-sm flex items-center [&>li>a]:text-white [&>li>a]:font-normal [&>li>a]:font-figtree-normal [&>li>a]:inline-block [&>li>a]:px-3 [&>li>a]:py-2 z-20">
+      <NavLink pageTitle={pageTitle} href="/" text="Inicio" />
+      <NavLink pageTitle={pageTitle} href="/my-code" text="Mi código" />
+      <NavLink pageTitle={pageTitle} href="/upload-documents" text="Subir documentos" />
+      <NavLink pageTitle={pageTitle} href="/request-process" text="Consultar proceso" />
+      <NavLink pageTitle={pageTitle} href="/download-form" text="Descargar formulario" />
+      <NavLink pageTitle={pageTitle} href="/tutorials" text="Ver tutoriales" />
+    </ul>
+    <div
+      id="menu-backdrop"
+      class={`
+        absolute bg-[#f3f4f6] backdrop-blur-lg rounded-md z-10
+        translate-x-[var(--left)] translate-y-[var(--top)]
+        left-0 top-0
+        w-[var(--width)] h-[var(--height)]
+        transition-all duration-500 ease-in-out delay-75 opacity-0
+      `}
+    />
+    </div>
+  </nav>
+  <div>
+    <ul id="menu-drop" class="text-sm items-center text-[#f3f4f6] font-normal font-figtree-normal z-20 [&>li]:rounded-md">
+      <li class="transition-all duration-300 ease-out hover:bg-[#f3f4f6] hover:text-indigo-500 hidden sm:flex">
+        <button type="button" class="px-3 py-2">Iniciar Sesión</button>
+      </li>
+      <li class="sm:hidden border-2 flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30"><path d="M145.478-219.086q-16.707 0-28.158-11.502-11.451-11.501-11.451-28.848 0-16.781 11.451-28.107 11.451-11.327 28.158-11.327h669.044q16.707 0 28.441 11.502 11.733 11.502 11.733 28.283 0 17.347-11.733 28.673-11.734 11.326-28.441 11.326H145.478Zm0-221.305q-16.707 0-28.158-11.501-11.451-11.502-11.451-28.283 0-16.782 11.451-28.108t28.158-11.326h669.044q16.707 0 28.441 11.501 11.733 11.502 11.733 28.283 0 16.782-11.733 28.108-11.734 11.326-28.441 11.326H145.478Zm0-220.739q-16.707 0-28.158-11.502t-11.451-28.848q0-16.782 11.451-28.108t28.158-11.326h669.044q16.707 0 28.441 11.502 11.733 11.501 11.733 28.282 0 17.347-11.733 28.673-11.734 11.327-28.441 11.327H145.478Z" fill="currentColor"/></svg>
+      </li>
+    </ul>
+  </div>
+  <div id="login-menu" class="hidden absolute w-48 rounded-xl border-2 p-4 pb-6 top-[4.2rem] right-0 bg-white shadow-sm font-figtree-normal text-sm text-end transition-all duration-200 ease-in opacity-0">
+    <ul class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2 sm:hidden">
+        <li><a href="/" class="hover:underline hover:text-indigo-500">Inicio</a></li>
+        <li><a href="/my-code" class="hover:underline hover:text-indigo-500">Mi código</a></li>
+        <li><a href="/upload-documents" class="hover:underline hover:text-indigo-500">Subir documentos</a></li>
+        <li><a href="/request-process" class="hover:underline hover:text-indigo-500">Consultar proceso</a></li>
+        <li><a href="/download-form" class="hover:underline hover:text-indigo-500">Descargar formulario</a></li>
+        <li><a href="/tutorials" class="hover:underline hover:text-indigo-500">Ver tutoriales</a></li>
+        <hr class="border-indigo-500 w-full my-4">
+      </div>
+      <li><a href="#" class="hover:underline hover:text-indigo-500">Iniciar como estudiante</a></li>
+      <li><a href="#" class="hover:underline hover:text-indigo-500">Iniciar como docente</a></li>
+    </ul>
+    <div id="back-deactivation" class="fixed -z-10 h-screen w-screen top-0 left-0">
+    </div>
+  </div>
+</header>
+
+<di class="h-16 w-full"></div>
+
+<style>
+  ul:hover li a {
+    border: none;
+  }
+</style>
+
+<script>
+  const listItem = document.querySelectorAll('#landing-nav li')
+  const menuBackDrop = document.querySelector('#menu-backdrop')
+  const firstItem = listItem && listItem[0]
+  const setBackDrop = () => {
+    const {left, top, width, height} = firstItem.getBoundingClientRect()
+    menuBackDrop.style.setProperty('--left', `${left}px`)
+    menuBackDrop.style.setProperty('--top', `${top}px`)
+    menuBackDrop.style.setProperty('--width', `${width}px`)
+    menuBackDrop.style.setProperty('--height', `${height}px`)
+  }
+  setBackDrop()
+  
+  listItem.forEach(item => {
+      item.addEventListener('mouseenter', ({ target }) => {
+          const {left, top, width, height} = target.getBoundingClientRect()
+          menuBackDrop.style.setProperty('--left', `${left}px`)
+          menuBackDrop.style.setProperty('--top', `${top}px`)
+          menuBackDrop.style.setProperty('--width', `${width}px`)
+          menuBackDrop.style.setProperty('--height', `${height}px`)
+          menuBackDrop.style.setProperty('opacity', '1')
+          menuBackDrop.style.setProperty('visibility', 'visible')
+      })
+
+      item.addEventListener('mouseleave', ({ target }) => {
+          menuBackDrop.style.setProperty('opacity', '0')
+          menuBackDrop.style.setProperty('visibility', 'hidden')
+      })
+  });
+</script>
+
+<script>
+  const menuDrop = document.querySelector("#menu-drop")
+  const loginMenu = document.querySelector("#login-menu")
+  const backDeactivation = document.querySelector("#back-deactivation")
+
+  backDeactivation.addEventListener("click", animation)
+  menuDrop.addEventListener("click", animation)
+
+  function animationEnter() {
+    loginMenu.classList.toggle("hidden")
+    setTimeout(() => {
+      loginMenu.classList.toggle("opacity-100")
+      loginMenu.classList.toggle("right-2")
+      }, 1);
+  }
+  function animationLeave() {
+    loginMenu.classList.toggle("opacity-100")
+    loginMenu.classList.toggle("right-2")
+    setTimeout(() => {
+      loginMenu.classList.toggle("hidden")
+      }, 200);
+  }
+  function animation() {
+    const hidden = loginMenu.classList.contains("hidden")
+    hidden ? animationEnter() : animationLeave()
+  }
+</script>

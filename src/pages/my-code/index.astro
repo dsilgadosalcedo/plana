@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Card from "../../components/Card.astro";
+import Button from "../../components/Button.astro";
+---
+
+<BaseLayout pageTitle="Mi código">
+    <Card h="h-auto">
+      <div class="flex flex-col items-center w-full m-6">
+        <p class="text-center text-lg mb-8 text-gray-600 font-figtree-semibold font-semibold">Enviaremos el código a tu correo</p>
+      <form action="#" class="flex flex-col items-center w-full gap-4 font-figtree-normal normal">
+          <div class="flex flex-col">
+              <label for="email">Correo</label>
+              <input id="email" type="email" class="p-2 rounded-md w-64 border-2 border-gray-300">
+          </div>
+          <div class="flex flex-col">
+              <label for="document">Número de documento</label>
+              <input id="document" type="number" class="no-arrows p-2 rounded-md w-64 border-2 border-gray-300">
+          </div>
+          <Button>
+            Recibir código
+          </Button>
+        </form>
+      </div>
+    </Card>
+  <style>
+.no-arrows::-webkit-inner-spin-button,
+.no-arrows::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+  </style>
+</BaseLayout>
